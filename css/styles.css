@@ -335,3 +335,5 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
   .chat-widget > span:not(.bubble) { display: none; }
 }
 .hero .eyebrow, .page-hero .eyebrow, .s360-hero .eyebrow { color: #ff7a6e; }
+html.translated-ltr .main-nav, html.translated-rtl .main-nav { flex-wrap: wrap; justify-content: flex-end; gap: 2px 16px; }
+html.translated-ltr .main-nav a, html.translated-rtl .main-nav a { white-space: normal; }
