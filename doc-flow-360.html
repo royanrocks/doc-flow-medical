@@ -10,21 +10,35 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <script>try{var s=localStorage.getItem('df-text-size');if(s)document.documentElement.style.fontSize=s+'%';}catch(e){}</script>
 </head>
 <body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- Utility bar -->
   <div class="utility-bar">
     <div class="container">
       <div class="utility-left">
-        <span>Internal Medicine &amp; Primary Care</span>
-        <span class="dot-sep">·</span>
-        <span>Atención médica en inglés y español</span>
-        <span class="badge-dot">Bilingual Physician (English &amp; Spanish)</span>
+        <a class="util-phone" href="tel:+17187091600"><img src="assets/ui/icon-phone.svg" alt=""> 718-709-1600</a>
+        <span class="dot-sep" aria-hidden="true">·</span>
+        <a class="util-phone" href="tel:+17188061844">718-806-1844</a>
+        <span class="dot-sep util-hide-sm" aria-hidden="true">·</span>
+        <span class="util-hide-sm" lang="es">Atención médica en inglés y español</span>
       </div>
       <div class="utility-right">
-        <a href="patient-resources.html"><img src="assets/ui/icon-lock.svg" alt=""> Patient Portal</a>
-        <a href="patient-resources.html#insurance"><img src="assets/ui/icon-tag.svg" alt=""> Insurance &amp; Pricing</a>
+        <div class="a11y-group" role="group" aria-label="Text size">
+          <span class="a11y-label">Text size</span>
+          <button type="button" class="a11y-btn" data-text-size="down" aria-label="Make text smaller">A&minus;</button>
+          <button type="button" class="a11y-btn" data-text-size="reset" aria-label="Reset text size">A</button>
+          <button type="button" class="a11y-btn" data-text-size="up" aria-label="Make text larger">A+</button>
+        </div>
+        <div class="a11y-group lang-group">
+          <img src="assets/ui/icon-globe.svg" alt="">
+          <span class="a11y-label" id="lang-label">Language</span>
+          <div id="google_translate_element" class="translate-slot" aria-labelledby="lang-label"></div>
+        </div>
+        <a class="util-hide-sm" href="patient-resources.html"><img src="assets/ui/icon-lock.svg" alt=""> Patient Portal</a>
       </div>
     </div>
   </div>
@@ -39,10 +53,10 @@
           <span class="brand-sub">MEDICAL</span>
         </span>
       </a>
-      <nav class="main-nav">
+      <nav class="main-nav" id="main-nav" aria-label="Main">
         <a href="index.html">Home</a>
         <a href="services.html">Services <span class="caret">▼</span></a>
-        <a href="doc-flow-360.html" class="active">Doc Flow 360°</a>
+        <a href="doc-flow-360.html" class="active" aria-current="page">Doc Flow 360°</a>
         <a href="prevention-imaging.html">Prevention &amp; Imaging</a>
         <a href="concierge-care.html">Concierge Care</a>
         <a href="about.html">About Dr. Auquilla</a>
@@ -50,9 +64,11 @@
         <a href="contact.html">Contact</a>
       </nav>
       <a href="contact.html" class="btn btn-red btn-nav">Book a Consultation</a>
-      <button class="nav-toggle" aria-label="Menu">☰</button>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">☰</button>
     </div>
   </header>
+
+  <main id="main">
 
   <!-- 360 hero -->
   <section class="s360-hero">
@@ -65,6 +81,7 @@
       <div class="self-pay">
         <span class="chip">Optional Self-Pay Services</span>
         <p>Physician-led. Data-driven. Designed around you.</p>
+        <p class="hero-call">Call to schedule a consultation: <a href="tel:+17187091600">718-709-1600</a> · <a href="tel:+17188061844">718-806-1844</a></p>
       </div>
     </div>
   </section>
@@ -80,11 +97,12 @@
             <div><span class="deg">360°</span><h2>Weight Loss &amp; Body Composition</h2></div>
           </div>
           <p class="desc">Physician-led weight management and body composition analysis to help you lose fat, preserve muscle and improve your health.</p>
-          <p class="svc-label">Services</p>
-          <div class="price-row"><span class="n">InBody 380 Scan (Body Composition)</span><span class="p">$49</span></div>
-          <div class="price-row"><span class="n">Medical Weight Loss Assessment</span><span class="p">$179</span></div>
-          <div class="price-row"><span class="n">Complete Weight Loss Program (Initial Visit)</span><span class="p">$249</span></div>
+          <h3 class="svc-label">Services</h3>
+          <div class="price-row"><span class="n">InBody 380 Scan (Body Composition)</span></div>
+          <div class="price-row"><span class="n">Medical Weight Loss Assessment</span></div>
+          <div class="price-row"><span class="n">Complete Weight Loss Program (Initial Visit)</span></div>
           <p class="incl">Includes physician evaluation, InBody scan &amp; personalized plan</p>
+          <a class="card-call" href="tel:+17187091600">Call to schedule a consultation<span class="visually-hidden">: 718-709-1600</span> <span aria-hidden="true">›</span></a>
         </div>
 
         <div class="s360-card">
@@ -93,11 +111,12 @@
             <div><span class="deg">360°</span><h2>Preventive &amp; Metabolic Health</h2></div>
           </div>
           <p class="desc">Comprehensive evaluations to assess your risk, optimize metabolic health and prevent future problems.</p>
-          <p class="svc-label">Services</p>
-          <div class="price-row"><span class="n">Metabolic Health Assessment</span><span class="p">$179</span></div>
-          <div class="price-row"><span class="n">Metabolic + Cardiac Assessment (w/ EKG)</span><span class="p">$249</span></div>
-          <div class="price-row"><span class="n">Comprehensive Preventive Health Assessment</span><span class="p">$349</span></div>
+          <h3 class="svc-label">Services</h3>
+          <div class="price-row"><span class="n">Metabolic Health Assessment</span></div>
+          <div class="price-row"><span class="n">Metabolic + Cardiac Assessment (w/ EKG)</span></div>
+          <div class="price-row"><span class="n">Comprehensive Preventive Health Assessment</span></div>
           <p class="incl">Includes labs, physician review &amp; personalized plan</p>
+          <a class="card-call" href="tel:+17187091600">Call to schedule a consultation<span class="visually-hidden">: 718-709-1600</span> <span aria-hidden="true">›</span></a>
         </div>
 
         <div class="s360-card">
@@ -106,11 +125,12 @@
             <div><span class="deg">360°</span><h2>Heart Health</h2></div>
           </div>
           <p class="desc">Advanced screening and risk assessment to support a strong, healthy heart.</p>
-          <p class="svc-label">Services</p>
-          <div class="price-row"><span class="n">Heart Health Screening (EKG)</span><span class="p">$99</span></div>
-          <div class="price-row"><span class="n">Cardiovascular Risk Assessment</span><span class="p">$179</span></div>
-          <div class="price-row"><span class="n">Advanced Cardiac Assessment</span><span class="p">$249</span></div>
+          <h3 class="svc-label">Services</h3>
+          <div class="price-row"><span class="n">Heart Health Screening (EKG)</span></div>
+          <div class="price-row"><span class="n">Cardiovascular Risk Assessment</span></div>
+          <div class="price-row"><span class="n">Advanced Cardiac Assessment</span></div>
           <p class="incl">Includes EKG, labs &amp; physician consultation</p>
+          <a class="card-call" href="tel:+17187091600">Call to schedule a consultation<span class="visually-hidden">: 718-709-1600</span> <span aria-hidden="true">›</span></a>
         </div>
 
         <div class="s360-card">
@@ -119,11 +139,12 @@
             <div><span class="deg">360°</span><h2>Digestive Health</h2></div>
           </div>
           <p class="desc">Get answers for abdominal symptoms, optimize gut health and improve overall digestive well-being.</p>
-          <p class="svc-label">Services</p>
-          <div class="price-row"><span class="n">Digestive Health Assessment</span><span class="p">$179</span></div>
-          <div class="price-row"><span class="n">H. pylori Testing (Breath or Stool)</span><span class="p">$99</span></div>
-          <div class="price-row"><span class="n">Comprehensive Digestive Evaluation</span><span class="p">$249</span></div>
+          <h3 class="svc-label">Services</h3>
+          <div class="price-row"><span class="n">Digestive Health Assessment</span></div>
+          <div class="price-row"><span class="n">H. pylori Testing (Breath or Stool)</span></div>
+          <div class="price-row"><span class="n">Comprehensive Digestive Evaluation</span></div>
           <p class="incl">Includes testing, labs (if needed) &amp; physician review</p>
+          <a class="card-call" href="tel:+17187091600">Call to schedule a consultation<span class="visually-hidden">: 718-709-1600</span> <span aria-hidden="true">›</span></a>
         </div>
 
         <div class="s360-card">
@@ -132,11 +153,12 @@
             <div><span class="deg">360°</span><h2>Immune Support</h2></div>
           </div>
           <p class="desc">Support your immune system with targeted evaluations, lab testing and nutrient optimization.</p>
-          <p class="svc-label">Services</p>
-          <div class="price-row"><span class="n">Immune Health Assessment</span><span class="p">$179</span></div>
-          <div class="price-row"><span class="n">Immune Support IV (Basic)</span><span class="p">$169</span></div>
-          <div class="price-row"><span class="n">Immune Support IV (Advanced)</span><span class="p">$229</span></div>
+          <h3 class="svc-label">Services</h3>
+          <div class="price-row"><span class="n">Immune Health Assessment</span></div>
+          <div class="price-row"><span class="n">Immune Support IV (Basic)</span></div>
+          <div class="price-row"><span class="n">Immune Support IV (Advanced)</span></div>
           <p class="incl">Includes physician evaluation &amp; customized plan</p>
+          <a class="card-call" href="tel:+17187091600">Call to schedule a consultation<span class="visually-hidden">: 718-709-1600</span> <span aria-hidden="true">›</span></a>
         </div>
 
         <div class="s360-card">
@@ -145,12 +167,13 @@
             <div><span class="deg">360°</span><h2>IV Therapy &amp; Recovery</h2></div>
           </div>
           <p class="desc">Physician-supervised IV hydration and nutrient therapies for energy, recovery, performance and overall wellness.</p>
-          <p class="svc-label">Services</p>
-          <div class="price-row"><span class="n">Hydration IV</span><span class="p">$199</span></div>
-          <div class="price-row"><span class="n">Recovery IV (Performance)</span><span class="p">$249</span></div>
-          <div class="price-row"><span class="n">NAD+ IV Therapy (250mg)</span><span class="p">$349</span></div>
-          <div class="price-row"><span class="n">NAD+ IV Therapy (500mg)</span><span class="p">$499</span></div>
+          <h3 class="svc-label">Services</h3>
+          <div class="price-row"><span class="n">Hydration IV</span></div>
+          <div class="price-row"><span class="n">Recovery IV (Performance)</span></div>
+          <div class="price-row"><span class="n">NAD+ IV Therapy (250mg)</span></div>
+          <div class="price-row"><span class="n">NAD+ IV Therapy (500mg)</span></div>
           <p class="incl">Add-on IVs available same-day with any 360° assessment. Home IV medical services available in all 5 boroughs for an additional fee, schedule permitting.</p>
+          <a class="card-call" href="tel:+17187091600">Call to schedule a consultation<span class="visually-hidden">: 718-709-1600</span> <span aria-hidden="true">›</span></a>
         </div>
 
         <div class="s360-card">
@@ -159,11 +182,12 @@
             <div><span class="deg">360°</span><h2>Skin &amp; Beauty</h2></div>
           </div>
           <p class="desc">Beauty starts from within. Optimize your skin, hair and body with a personalized, physician-led approach.</p>
-          <p class="svc-label">Services</p>
-          <div class="price-row"><span class="n">Skin &amp; Beauty Assessment</span><span class="p">$179</span></div>
-          <div class="price-row"><span class="n">Beauty IV (Glow &amp; Hydration)</span><span class="p">$179</span></div>
-          <div class="price-row"><span class="n">Advanced Beauty IV (Collagen Support)</span><span class="p">$229</span></div>
+          <h3 class="svc-label">Services</h3>
+          <div class="price-row"><span class="n">Skin &amp; Beauty Assessment</span></div>
+          <div class="price-row"><span class="n">Beauty IV (Glow &amp; Hydration)</span></div>
+          <div class="price-row"><span class="n">Advanced Beauty IV (Collagen Support)</span></div>
           <p class="incl">Includes labs (if needed), nutrition and personalized plan</p>
+          <a class="card-call" href="tel:+17187091600">Call to schedule a consultation<span class="visually-hidden">: 718-709-1600</span> <span aria-hidden="true">›</span></a>
         </div>
 
         <div class="s360-card">
@@ -172,25 +196,41 @@
             <div><span class="deg">360°</span><h2>Executive Health</h2></div>
           </div>
           <p class="desc">Our most comprehensive assessment for high-performing individuals who want complete peace of mind.</p>
-          <p class="svc-label">Services</p>
-          <div class="price-row"><span class="n">Executive Health Assessment</span><span class="p">$499</span></div>
-          <div class="price-row"><span class="n">Executive Health (w/ InBody &amp; IV)</span><span class="p">$649</span></div>
-          <div class="price-row"><span class="n">Executive Health (Premium)</span><span class="p">$849</span></div>
+          <h3 class="svc-label">Services</h3>
+          <div class="price-row"><span class="n">Executive Health Assessment</span></div>
+          <div class="price-row"><span class="n">Executive Health (w/ InBody &amp; IV)</span></div>
+          <div class="price-row"><span class="n">Executive Health (Premium)</span></div>
           <p class="incl">Includes labs, EKG, InBody, physician review &amp; personalized plan</p>
+          <a class="card-call" href="tel:+17187091600">Call to schedule a consultation<span class="visually-hidden">: 718-709-1600</span> <span aria-hidden="true">›</span></a>
         </div>
 
+      </div>
+
+      <div class="s360-wide">
+        <div class="s360-head">
+          <span class="s360-badge"><img src="assets/icons360/icon360-executive.svg" alt=""></span>
+          <div><span class="deg">360°</span><h2>Group, Corporate &amp; Mobile Services</h2></div>
+        </div>
+        <p class="desc">Bring physician-led care to your team, your event, or your door. We work with businesses, organizations and private groups across all 5 boroughs.</p>
+        <ul class="wide-list">
+          <li><strong>Business &amp; Executive Bookings</strong><span>Executive health assessments and wellness days for your leadership team or staff.</span></li>
+          <li><strong>Group IV Bookings</strong><span>IV hydration and nutrient therapy for groups, teams and private parties.</span></li>
+          <li><strong>Events</strong><span>On-site IV and wellness services for corporate events, retreats and special occasions.</span></li>
+          <li><strong>Mobile IV &amp; Medical Treatments</strong><span>IV therapy and medical treatments at your home, office or hotel, as medically appropriate.</span></li>
+        </ul>
+        <a class="card-call" href="tel:+17187091600">Call to schedule a consultation<span class="visually-hidden">: 718-709-1600</span> <span aria-hidden="true">›</span></a>
       </div>
 
       <div class="s360-lower">
         <div class="panel">
           <div class="panel-head">Add-On Options</div>
           <div class="addons">
-            <div class="price-row"><span class="n">InBody 380 Scan (Add-on)</span><span class="p">$39</span></div>
-            <div class="price-row"><span class="n">H. pylori Breath Test</span><span class="p">$99</span></div>
-            <div class="price-row"><span class="n">EKG</span><span class="p">$49</span></div>
-            <div class="price-row"><span class="n">Point-of-Care Testing (Select Labs)<small>Same-visit results</small></span><span class="p">From&nbsp;$49</span></div>
-            <div class="price-row"><span class="n">Urinalysis</span><span class="p">$25</span></div>
-            <div class="price-row"><span class="n">BioReference Lab Panels</span><span class="p">Priced per panel</span></div>
+            <div class="price-row"><span class="n">InBody 380 Scan (Add-on)</span></div>
+            <div class="price-row"><span class="n">H. pylori Breath Test</span></div>
+            <div class="price-row"><span class="n">EKG</span></div>
+            <div class="price-row"><span class="n">Point-of-Care Testing (Select Labs)<small>Same-visit results</small></span></div>
+            <div class="price-row"><span class="n">Urinalysis</span></div>
+            <div class="price-row"><span class="n">BioReference Lab Panels</span></div>
           </div>
           <div class="panel-foot">Add-ons can be added to any 360° assessment or visit.</div>
         </div>
@@ -201,7 +241,6 @@
           <div class="tiers">
             <div class="tier">
               <h3>360° Member</h3>
-              <p class="rate">$149 <span>/ month</span></p>
               <ul>
                 <li>2 Physician Wellness Visits / year</li>
                 <li>InBody Scan every 3 months</li>
@@ -212,7 +251,6 @@
             </div>
             <div class="tier">
               <h3>360° Premium Member</h3>
-              <p class="rate">$229 <span>/ month</span></p>
               <ul>
                 <li>4 Physician Wellness Visits / year</li>
                 <li>InBody Scan every month</li>
@@ -224,119 +262,75 @@
             </div>
           </div>
           <p class="founding-note">Membership is limited to our <strong>founding first 99 patients</strong>.</p>
+          <p class="panel-call"><a class="btn btn-red" href="tel:+17187091600">Call for membership details<span class="visually-hidden">: 718-709-1600</span></a></p>
           <div class="member-banner">No long-term commitment. Cancel anytime.</div>
         </div>
       </div>
 
-      <p class="s360-disclaimer">Doc Flow 360° services are optional self-pay wellness and health-optimization services and do not replace medically necessary care or insurance-covered benefits provided through Doc Flow Medical.<br>Consultation with a physician is required for all assessments and treatments. Pricing subject to change without notice.</p>
+      <p class="s360-disclaimer">Doc Flow 360° services are optional self-pay wellness and health-optimization services and do not replace medically necessary care or insurance-covered benefits provided through Doc Flow Medical.<br>Consultation with a physician is required for all assessments and treatments. Please call our office to schedule a consultation.</p>
     </div>
   </section>
 
-  <!-- Patient intake -->
-  <section class="intake" id="intake">
+  <!-- Questions for the office -->
+  <section class="intake" id="questions" aria-labelledby="questions-title">
     <div class="container">
-      <p class="eyebrow">Get Started</p>
-      <h2>Patient Information</h2>
-      <p class="sub">Tell us a little about yourself and the service you're interested in, and our team will reach out to confirm your appointment. Atención en inglés y español.</p>
+      <p class="eyebrow">Questions?</p>
+      <h2 id="questions-title">Email the office</h2>
+      <p class="sub">Send us a question and our team will get back to you. To book, <strong>call to schedule a consultation</strong> at <a href="tel:+17187091600">718-709-1600</a> or <a href="tel:+17188061844">718-806-1844</a>. New-patient consultation forms are sent to you securely through our patient portal. Atención en inglés y español.</p>
 
-      <form action="https://formsubmit.co/royanrocks@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="New Patient Intake — Doc Flow 360°">
+      <form action="https://formsubmit.co/Docflow@docflowmedical.com" method="POST">
+        <input type="hidden" name="_subject" value="Website question — Doc Flow Medical">
         <input type="hidden" name="_template" value="table">
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="text" name="_honey" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
 
         <div class="form-grid">
           <div class="field">
-            <label for="f-name">Full Name <span class="req">*</span></label>
-            <input id="f-name" name="Full Name" type="text" autocomplete="name" required>
+            <label for="q-name">Full Name <span class="req" aria-hidden="true">*</span><span class="visually-hidden">(required)</span></label>
+            <input id="q-name" name="Full Name" type="text" autocomplete="name" required>
           </div>
           <div class="field">
-            <label for="f-dob">Date of Birth</label>
-            <input id="f-dob" name="Date of Birth" type="date">
+            <label for="q-email">Email <span class="req" aria-hidden="true">*</span><span class="visually-hidden">(required)</span></label>
+            <input id="q-email" name="email" type="email" autocomplete="email" required>
           </div>
           <div class="field">
-            <label for="f-phone">Phone <span class="req">*</span></label>
-            <input id="f-phone" name="Phone" type="tel" autocomplete="tel" required>
+            <label for="q-phone">Phone</label>
+            <input id="q-phone" name="Phone" type="tel" autocomplete="tel">
           </div>
           <div class="field">
-            <label for="f-email">Email <span class="req">*</span></label>
-            <input id="f-email" name="Email" type="email" autocomplete="email" required>
+            <label for="q-lang">Preferred Language</label>
+            <input id="q-lang" name="Preferred Language" type="text" list="q-lang-list" placeholder="English, Español, …">
+            <datalist id="q-lang-list">
+              <option value="English"></option>
+              <option value="Español"></option>
+            </datalist>
           </div>
-          <div class="field">
-            <label for="f-lang">Preferred Language</label>
-            <select id="f-lang" name="Preferred Language">
-              <option>English</option>
-              <option>Español</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="f-service">Service of Interest <span class="req">*</span></label>
-            <select id="f-service" name="Service of Interest" required>
-              <option value="" disabled selected>Select a service…</option>
-              <optgroup label="Primary Care (Insurance-Based)">
-                <option>Primary Care / Internal Medicine Visit</option>
-              </optgroup>
-              <optgroup label="Doc Flow 360° (Self-Pay)">
-                <option>360° Weight Loss &amp; Body Composition</option>
-                <option>360° Preventive &amp; Metabolic Health</option>
-                <option>360° Heart Health</option>
-                <option>360° Digestive Health</option>
-                <option>360° Immune Support</option>
-                <option>360° IV Therapy &amp; Recovery</option>
-                <option>360° Skin &amp; Beauty</option>
-                <option>360° Executive Health</option>
-              </optgroup>
-              <optgroup label="Membership">
-                <option>360° Membership ($149/mo)</option>
-                <option>360° Premium Membership ($229/mo)</option>
-              </optgroup>
-              <option>Not sure yet — help me choose</option>
-            </select>
-          </div>
-          <div class="field">
-            <label>Patient Status</label>
-            <div class="radio-row">
-              <label><input type="radio" name="Patient Status" value="New patient" checked> New patient</label>
-              <label><input type="radio" name="Patient Status" value="Existing patient"> Existing patient</label>
-            </div>
-          </div>
-          <div class="field">
-            <label>Visit Type</label>
-            <div class="radio-row">
-              <label><input type="radio" name="Visit Type" value="In office" checked> In office</label>
-              <label><input type="radio" name="Visit Type" value="Home IV visit (5 boroughs)"> Home IV visit (5 boroughs)</label>
-            </div>
-          </div>
-          <div class="field">
-            <label for="f-date">Preferred Date</label>
-            <input id="f-date" name="Preferred Date" type="date">
-          </div>
-          <div class="field">
-            <label for="f-time">Preferred Time</label>
-            <select id="f-time" name="Preferred Time">
-              <option>Morning</option>
-              <option>Afternoon</option>
-              <option>Evening</option>
-              <option>Flexible</option>
+          <div class="field full">
+            <label for="q-topic">Question About</label>
+            <select id="q-topic" name="Topic">
+              <option>General question</option>
+              <option>Primary Care / Internal Medicine</option>
+              <option>Doc Flow 360° Wellness Services</option>
+              <option>IV Therapy (in office or mobile)</option>
+              <option>Group, Corporate or Event Booking</option>
+              <option>360° Membership</option>
+              <option>Insurance</option>
             </select>
           </div>
           <div class="field full">
-            <label for="f-notes">Anything else we should know?</label>
-            <textarea id="f-notes" name="Notes" placeholder="Questions, scheduling constraints, or how we can help. Please do not include detailed medical information in this form."></textarea>
-          </div>
-          <div class="field full">
-            <label class="consent" style="text-transform:none;letter-spacing:0;font-weight:500">
-              <input type="checkbox" name="Consent" value="Agreed" required>
-              <span>I understand that Doc Flow 360° services are optional self-pay wellness services, do not replace medically necessary or insurance-covered care, and that a physician consultation is required for all assessments and treatments.</span>
-            </label>
+            <label for="q-message">Your Question <span class="req" aria-hidden="true">*</span><span class="visually-hidden">(required)</span></label>
+            <textarea id="q-message" name="Question" required aria-describedby="q-privacy"></textarea>
+            <p class="field-hint" id="q-privacy">Please do not include detailed medical information in this form.</p>
           </div>
           <div class="form-actions">
-            <button type="submit" class="btn btn-red">Submit Patient Info <span>›</span></button>
-            <p class="form-note">This form is not for emergencies. If you are experiencing a medical emergency, call 911. Home IV visits are available in all 5 boroughs for an additional fee, schedule permitting.</p>
+            <button type="submit" class="btn btn-red">Send to the Office <span aria-hidden="true">›</span></button>
+            <p class="form-note">This form is not for emergencies. If you are experiencing a medical emergency, call 911. You can also email us directly at <a href="mailto:Docflow@docflowmedical.com">Docflow@docflowmedical.com</a>.</p>
           </div>
         </div>
       </form>
     </div>
   </section>
+
+  </main>
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -367,16 +361,18 @@
           <ul>
             <li><a href="patient-resources.html">Patient Resources</a></li>
             <li><a href="patient-resources.html">Patient Portal</a></li>
-            <li><a href="patient-resources.html#insurance">Insurance &amp; Pricing</a></li>
+            <li><a href="patient-resources.html#insurance">Insurance</a></li>
             <li><a href="contact.html">Book a Consultation</a></li>
           </ul>
         </div>
         <div>
           <h4>Visit Us</h4>
-          <ul>
-            <li>Long Island City, Queens, NY</li>
-            <li>Atención médica en inglés y español</li>
-            <li><a href="contact.html">Contact us</a></li>
+          <ul class="footer-contact">
+            <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=9-03+35th+Ave%2C+Long+Island+City%2C+NY+11106" target="_blank" rel="noopener">9-03 35th Ave<br>Long Island City, NY 11106<span class="visually-hidden"> (opens directions in Google Maps)</span></a></li>
+            <li>Phone: <a href="tel:+17187091600">718-709-1600</a></li>
+            <li>Phone: <a href="tel:+17188061844">718-806-1844</a></li>
+            <li>Fax: 717-806-1377</li>
+            <li><a href="mailto:Docflow@docflowmedical.com">Docflow@docflowmedical.com</a></li>
           </ul>
         </div>
       </div>
@@ -388,11 +384,12 @@
   </footer>
 
   <!-- Chat widget -->
-  <button class="chat-widget" aria-label="Chat with us">
+  <a class="chat-widget" href="contact.html#questions" aria-label="Questions? Email the office">
     <span class="bubble"><img src="assets/ui/icon-chat.svg" alt=""></span>
     <span><strong>¿Necesita ayuda?</strong><span>We're here to help.</span></span>
-  </button>
+  </a>
 
   <script src="js/main.js"></script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=dfTranslateInit" async></script>
 </body>
 </html>

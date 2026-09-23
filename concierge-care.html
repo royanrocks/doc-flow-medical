@@ -10,21 +10,35 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <script>try{var s=localStorage.getItem('df-text-size');if(s)document.documentElement.style.fontSize=s+'%';}catch(e){}</script>
 </head>
 <body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- Utility bar -->
   <div class="utility-bar">
     <div class="container">
       <div class="utility-left">
-        <span>Internal Medicine &amp; Primary Care</span>
-        <span class="dot-sep">·</span>
-        <span>Atención médica en inglés y español</span>
-        <span class="badge-dot">Bilingual Physician (English &amp; Spanish)</span>
+        <a class="util-phone" href="tel:+17187091600"><img src="assets/ui/icon-phone.svg" alt=""> 718-709-1600</a>
+        <span class="dot-sep" aria-hidden="true">·</span>
+        <a class="util-phone" href="tel:+17188061844">718-806-1844</a>
+        <span class="dot-sep util-hide-sm" aria-hidden="true">·</span>
+        <span class="util-hide-sm" lang="es">Atención médica en inglés y español</span>
       </div>
       <div class="utility-right">
-        <a href="patient-resources.html"><img src="assets/ui/icon-lock.svg" alt=""> Patient Portal</a>
-        <a href="patient-resources.html#insurance"><img src="assets/ui/icon-tag.svg" alt=""> Insurance &amp; Pricing</a>
+        <div class="a11y-group" role="group" aria-label="Text size">
+          <span class="a11y-label">Text size</span>
+          <button type="button" class="a11y-btn" data-text-size="down" aria-label="Make text smaller">A&minus;</button>
+          <button type="button" class="a11y-btn" data-text-size="reset" aria-label="Reset text size">A</button>
+          <button type="button" class="a11y-btn" data-text-size="up" aria-label="Make text larger">A+</button>
+        </div>
+        <div class="a11y-group lang-group">
+          <img src="assets/ui/icon-globe.svg" alt="">
+          <span class="a11y-label" id="lang-label">Language</span>
+          <div id="google_translate_element" class="translate-slot" aria-labelledby="lang-label"></div>
+        </div>
+        <a class="util-hide-sm" href="patient-resources.html"><img src="assets/ui/icon-lock.svg" alt=""> Patient Portal</a>
       </div>
     </div>
   </div>
@@ -39,20 +53,22 @@
           <span class="brand-sub">MEDICAL</span>
         </span>
       </a>
-      <nav class="main-nav">
+      <nav class="main-nav" id="main-nav" aria-label="Main">
         <a href="index.html">Home</a>
         <a href="services.html">Services <span class="caret">▼</span></a>
         <a href="doc-flow-360.html">Doc Flow 360°</a>
         <a href="prevention-imaging.html">Prevention &amp; Imaging</a>
-        <a href="concierge-care.html" class="active">Concierge Care</a>
+        <a href="concierge-care.html" class="active" aria-current="page">Concierge Care</a>
         <a href="about.html">About Dr. Auquilla</a>
         <a href="patient-resources.html">Patient Resources</a>
         <a href="contact.html">Contact</a>
       </nav>
       <a href="contact.html" class="btn btn-red btn-nav">Book a Consultation</a>
-      <button class="nav-toggle" aria-label="Menu">☰</button>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">☰</button>
     </div>
   </header>
+
+  <main id="main">
 
   <!-- Page hero -->
   <section class="page-hero">
@@ -77,13 +93,15 @@
         <li>Personalized annual health plan built on the 7 Pillars of Health</li>
       </ul>
       <h2>Who It's For</h2>
-      <p>Busy professionals, families, and anyone who values immediate access and a deeper relationship with their physician. Contact us to learn about membership options and pricing.</p>
+      <p>Busy professionals, families, and anyone who values immediate access and a deeper relationship with their physician. Call <a href="tel:+17187091600">718-709-1600</a> to learn about membership options and schedule a consultation.</p>
       <div class="page-cta">
         <h3>Ready to take charge of your health?</h3>
         <a href="contact.html" class="btn btn-red">Book a Consultation <span>›</span></a>
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -114,16 +132,18 @@
           <ul>
             <li><a href="patient-resources.html">Patient Resources</a></li>
             <li><a href="patient-resources.html">Patient Portal</a></li>
-            <li><a href="patient-resources.html#insurance">Insurance &amp; Pricing</a></li>
+            <li><a href="patient-resources.html#insurance">Insurance</a></li>
             <li><a href="contact.html">Book a Consultation</a></li>
           </ul>
         </div>
         <div>
           <h4>Visit Us</h4>
-          <ul>
-            <li>Long Island City, Queens, NY</li>
-            <li>Atención médica en inglés y español</li>
-            <li><a href="contact.html">Contact us</a></li>
+          <ul class="footer-contact">
+            <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=9-03+35th+Ave%2C+Long+Island+City%2C+NY+11106" target="_blank" rel="noopener">9-03 35th Ave<br>Long Island City, NY 11106<span class="visually-hidden"> (opens directions in Google Maps)</span></a></li>
+            <li>Phone: <a href="tel:+17187091600">718-709-1600</a></li>
+            <li>Phone: <a href="tel:+17188061844">718-806-1844</a></li>
+            <li>Fax: 717-806-1377</li>
+            <li><a href="mailto:Docflow@docflowmedical.com">Docflow@docflowmedical.com</a></li>
           </ul>
         </div>
       </div>
@@ -135,11 +155,12 @@
   </footer>
 
   <!-- Chat widget -->
-  <button class="chat-widget" aria-label="Chat with us">
+  <a class="chat-widget" href="contact.html#questions" aria-label="Questions? Email the office">
     <span class="bubble"><img src="assets/ui/icon-chat.svg" alt=""></span>
     <span><strong>¿Necesita ayuda?</strong><span>We're here to help.</span></span>
-  </button>
+  </a>
 
   <script src="js/main.js"></script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=dfTranslateInit" async></script>
 </body>
 </html>

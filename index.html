@@ -10,21 +10,35 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <script>try{var s=localStorage.getItem('df-text-size');if(s)document.documentElement.style.fontSize=s+'%';}catch(e){}</script>
 </head>
 <body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- Utility bar -->
   <div class="utility-bar">
     <div class="container">
       <div class="utility-left">
-        <span>Internal Medicine &amp; Primary Care</span>
-        <span class="dot-sep">·</span>
-        <span>Atención médica en inglés y español</span>
-        <span class="badge-dot">Bilingual Physician (English &amp; Spanish)</span>
+        <a class="util-phone" href="tel:+17187091600"><img src="assets/ui/icon-phone.svg" alt=""> 718-709-1600</a>
+        <span class="dot-sep" aria-hidden="true">·</span>
+        <a class="util-phone" href="tel:+17188061844">718-806-1844</a>
+        <span class="dot-sep util-hide-sm" aria-hidden="true">·</span>
+        <span class="util-hide-sm" lang="es">Atención médica en inglés y español</span>
       </div>
       <div class="utility-right">
-        <a href="patient-resources.html"><img src="assets/ui/icon-lock.svg" alt=""> Patient Portal</a>
-        <a href="patient-resources.html#insurance"><img src="assets/ui/icon-tag.svg" alt=""> Insurance &amp; Pricing</a>
+        <div class="a11y-group" role="group" aria-label="Text size">
+          <span class="a11y-label">Text size</span>
+          <button type="button" class="a11y-btn" data-text-size="down" aria-label="Make text smaller">A&minus;</button>
+          <button type="button" class="a11y-btn" data-text-size="reset" aria-label="Reset text size">A</button>
+          <button type="button" class="a11y-btn" data-text-size="up" aria-label="Make text larger">A+</button>
+        </div>
+        <div class="a11y-group lang-group">
+          <img src="assets/ui/icon-globe.svg" alt="">
+          <span class="a11y-label" id="lang-label">Language</span>
+          <div id="google_translate_element" class="translate-slot" aria-labelledby="lang-label"></div>
+        </div>
+        <a class="util-hide-sm" href="patient-resources.html"><img src="assets/ui/icon-lock.svg" alt=""> Patient Portal</a>
       </div>
     </div>
   </div>
@@ -39,8 +53,8 @@
           <span class="brand-sub">MEDICAL</span>
         </span>
       </a>
-      <nav class="main-nav">
-        <a href="index.html" class="active">Home</a>
+      <nav class="main-nav" id="main-nav" aria-label="Main">
+        <a href="index.html" class="active" aria-current="page">Home</a>
         <a href="services.html">Services <span class="caret">▼</span></a>
         <a href="doc-flow-360.html">Doc Flow 360°</a>
         <a href="prevention-imaging.html">Prevention &amp; Imaging</a>
@@ -50,9 +64,11 @@
         <a href="contact.html">Contact</a>
       </nav>
       <a href="contact.html" class="btn btn-red btn-nav">Book a Consultation</a>
-      <button class="nav-toggle" aria-label="Menu">☰</button>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">☰</button>
     </div>
   </header>
+
+  <main id="main">
 
   <!-- Hero -->
   <section class="hero">
@@ -79,7 +95,8 @@
           <span class="pin"><img src="assets/ui/icon-pin.svg" alt=""></span>
           <span>
             <strong>Long Island City, Queens</strong>
-            <p>Conveniently located to serve our community.</p>
+            <p>9-03 35th Ave, Long Island City, NY 11106</p>
+            <a class="location-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=9-03+35th+Ave%2C+Long+Island+City%2C+NY+11106" target="_blank" rel="noopener">Get directions<span class="visually-hidden"> in Google Maps (opens in a new tab)</span> ›</a>
           </span>
         </div>
       </div>
@@ -126,15 +143,16 @@
           <h2>Clear communication.<br>Better care.</h2>
           <p class="lead">Your health deserves clear communication. We proudly provide medical care in English and Spanish, ensuring you understand your diagnosis, treatment options, medications, preventive care, and long-term health plan.</p>
           <div class="lang-buttons">
-            <a class="lang-btn" href="contact.html">
-              <img src="assets/flags/flag-us.svg" alt="US flag">
+            <button type="button" class="lang-btn" data-translate="en" aria-label="View this website in English">
+              <img src="assets/flags/flag-us.svg" alt="">
               <span><strong>English</strong><span>We speak your language</span></span>
-            </a>
-            <a class="lang-btn" href="contact.html">
-              <img src="assets/flags/flag-es.svg" alt="Spanish flag">
+            </button>
+            <button type="button" class="lang-btn" data-translate="es" lang="es" aria-label="Ver este sitio web en español">
+              <img src="assets/flags/flag-es.svg" alt="">
               <span><strong>Español</strong><span>Atención en español</span></span>
-            </a>
+            </button>
           </div>
+          <p class="lang-more">Need another language? Use the <strong>Language</strong> menu at the top of any page to translate this site into 100+ languages.</p>
         </div>
         <div class="col-media">
           <img src="assets/img/consultation.png" alt="Bilingual physician consulting with a patient">
@@ -166,6 +184,72 @@
     </div>
   </section>
 
+  <!-- Patient reviews -->
+  <section class="reviews" aria-labelledby="reviews-title">
+    <div class="container">
+      <div class="reviews-head">
+        <div>
+          <p class="eyebrow">Patient Reviews</p>
+          <h2 id="reviews-title">What our patients say</h2>
+        </div>
+        <p class="reviews-summary"><span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span> <strong>5.0</strong> from verified patients and Google reviews</p>
+      </div>
+      <ul class="reviews-grid">
+        <li class="review">
+          <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <blockquote><p>I was very impressed with Dr. Auquilla! This was my first visit. She read my intake form beforehand and listened to me explain my reason for the appointment. She took time with me. I felt heard. She also informed me of the steps I may take to improve my health. And, she is so personable, pleasant, courteous and easy to talk to. I highly recommend her.</p></blockquote>
+          <p class="review-by">Fredrika W. <span>Verified patient</span></p>
+        </li>
+        <li class="review">
+          <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <blockquote><p>I've been dealing with Dr. Leslie for the last couple of years in a professional manner. The way she cares for her patients and the way her patients speak about her is very rare nowadays. It makes me happy to know there are providers like her out there striving to help those in need on their health care journeys.</p></blockquote>
+          <p class="review-by">David K. <span>Google review</span></p>
+        </li>
+        <li class="review">
+          <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <blockquote><p>Dr took the time to listen to my concerns, together we came up with a plan of action. She even took the time to call the pharmacy to make sure the meds were covered and, notified me they were being filled and, available tomorrow for pick up.</p></blockquote>
+          <p class="review-by">Brett S. <span>Verified patient</span></p>
+        </li>
+        <li class="review">
+          <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <blockquote><p>Everyone at this office is so lovely. The doctor is truly good at her job and is a gem to be seen by, and the front desk staff are super friendly and are willing to help you with anything you need. I'm very happy I switched doctors.</p></blockquote>
+          <p class="review-by">Maite M. <span>Verified patient</span></p>
+        </li>
+        <li class="review">
+          <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <blockquote><p>I've been treated by Dr. Leslie, and so far she's the doctor who knows all my ailments best. I've had a good recovery, and besides that, her energy and encouragement are very motivating; it's like she's a psychologist. I 100% recommend her.</p></blockquote>
+          <p class="review-by">Rodrigo C. <span>Google review · translated from Spanish</span></p>
+        </li>
+        <li class="review">
+          <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <blockquote><p>Doctor A. perhaps is one of the most informative physicians in the city with the best bedside manners! She is the type of doctor worth trusting with your health.</p></blockquote>
+          <p class="review-by">Kyle S. <span>Google review</span></p>
+        </li>
+        <li class="review">
+          <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <blockquote><p>I had a fantastic time today with Dr. Auquilla. I felt very heard and she slated me for multiple tests based on info shared. She took appropriate time with me. Hoping she will be my PCP for the foreseeable future.</p></blockquote>
+          <p class="review-by">Genesis B. <span>Verified patient</span></p>
+        </li>
+        <li class="review">
+          <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <blockquote><p>Dr. Leslie is very sweet and attentive. She is thorough and very easy to talk to. I recommend — she's amazing!</p></blockquote>
+          <p class="review-by">Alevon J. <span>Verified patient</span></p>
+        </li>
+        <li class="review">
+          <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+          <blockquote><p>Very professional, very great bedside manner, answered all my questions and suited all my needs.</p></blockquote>
+          <p class="review-by">Nicholas C. <span>Verified patient</span></p>
+        </li>
+      </ul>
+      <div class="reviews-cta">
+        <a class="btn btn-dark" href="https://www.google.com/maps/search/?api=1&amp;query=Doc+Flow+Medical+PC+9-03+35th+Ave+Long+Island+City+NY+11106" target="_blank" rel="noopener">Read more reviews on Google<span class="visually-hidden"> (opens in a new tab)</span> <span aria-hidden="true">›</span></a>
+        <a class="btn btn-red" href="tel:+17187091600">Call to schedule: 718-709-1600</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
@@ -195,16 +279,18 @@
           <ul>
             <li><a href="patient-resources.html">Patient Resources</a></li>
             <li><a href="patient-resources.html">Patient Portal</a></li>
-            <li><a href="patient-resources.html#insurance">Insurance &amp; Pricing</a></li>
+            <li><a href="patient-resources.html#insurance">Insurance</a></li>
             <li><a href="contact.html">Book a Consultation</a></li>
           </ul>
         </div>
         <div>
           <h4>Visit Us</h4>
-          <ul>
-            <li>Long Island City, Queens, NY</li>
-            <li>Atención médica en inglés y español</li>
-            <li><a href="contact.html">Contact us</a></li>
+          <ul class="footer-contact">
+            <li><a href="https://www.google.com/maps/dir/?api=1&amp;destination=9-03+35th+Ave%2C+Long+Island+City%2C+NY+11106" target="_blank" rel="noopener">9-03 35th Ave<br>Long Island City, NY 11106<span class="visually-hidden"> (opens directions in Google Maps)</span></a></li>
+            <li>Phone: <a href="tel:+17187091600">718-709-1600</a></li>
+            <li>Phone: <a href="tel:+17188061844">718-806-1844</a></li>
+            <li>Fax: 717-806-1377</li>
+            <li><a href="mailto:Docflow@docflowmedical.com">Docflow@docflowmedical.com</a></li>
           </ul>
         </div>
       </div>
@@ -216,11 +302,12 @@
   </footer>
 
   <!-- Chat widget -->
-  <button class="chat-widget" aria-label="Chat with us">
+  <a class="chat-widget" href="contact.html#questions" aria-label="Questions? Email the office">
     <span class="bubble"><img src="assets/ui/icon-chat.svg" alt=""></span>
     <span><strong>¿Necesita ayuda?</strong><span>We're here to help.</span></span>
-  </button>
+  </a>
 
   <script src="js/main.js"></script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=dfTranslateInit" async></script>
 </body>
 </html>
