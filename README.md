@@ -5,16 +5,17 @@ Static website for **Doc Flow Medical**, an Internal Medicine & Primary Care pra
 ## Structure
 
 ```
-index.html                 Homepage (hero, feature strip, language card, 7 Pillars)
+index.html                 Homepage (hero, feature strip, language card, 7 Pillars, patient reviews)
 services.html              Services
-doc-flow-360.html          Doc Flow 360° services, pricing, membership + patient intake form
+doc-flow-360.html          Doc Flow 360° services (no prices — call to schedule), group/mobile services, membership + "email the office" form
 prevention-imaging.html    Prevention & Imaging
 concierge-care.html        Concierge Care
 about.html                 About Dr. Auquilla
 patient-resources.html     Patient Resources (portal, insurance)
-contact.html               Contact & booking
-css/styles.css             All styles (responsive, mobile nav)
-js/main.js                 Mobile nav toggle + chat widget
+contact.html               Phones, fax, email, address + Google Map, "email the office" form
+css/styles.css             All styles (responsive, mobile nav); font sizes in rem so text-size controls scale everything
+js/main.js                 Mobile nav, text-size controls (A−/A/A+), Google Translate language picker
+CLIENT-REQUIREMENTS.md     Client requirements checklist, status and open items
 assets/
   logo-mark.svg            Brand cross mark
   icons/                   6 feature-strip icons (SVG)

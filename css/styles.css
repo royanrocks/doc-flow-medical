@@ -66,7 +66,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 .brand img { width: 44px; height: 44px; }
 .brand-text { line-height: 1.1; }
 .brand-name { display: block; font-family: var(--serif); font-weight: 700; font-size: 1.3125rem; letter-spacing: 2px; color: #fff; }
-.brand-sub { display: block; font-size: 0.6562rem; letter-spacing: 6px; color: var(--red-bright); font-weight: 600; margin-top: 3px; }
+.brand-sub { display: block; font-size: 0.6562rem; letter-spacing: 6px; color: #e8574b; font-weight: 600; margin-top: 3px; }
 .main-nav { display: flex; align-items: center; gap: 24px; }
 .main-nav a { font-size: 0.75rem; font-weight: 600; letter-spacing: 1.1px; color: #e6e6e6; text-transform: uppercase; padding: 8px 0; position: relative; white-space: nowrap; }
 .main-nav a:hover { color: #fff; }
@@ -284,7 +284,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 }
 
 /* ---------- Client updates: links, reviews, contact, services ---------- */
-.page-body p a, .intake .sub a, .form-note a, .lang-more a { color: var(--red); text-decoration: underline; text-underline-offset: 2px; }
+.page-body p a:not(.btn), .intake .sub a, .form-note a, .lang-more a { color: var(--red); text-decoration: underline; text-underline-offset: 2px; }
 .location-link { display: inline-block; margin-top: 8px; color: #fff; font-weight: 700; font-size: 0.8125rem; text-decoration: underline; text-underline-offset: 3px; }
 .lang-btn { font: inherit; color: inherit; cursor: pointer; text-align: left; }
 .lang-more { margin-top: 14px; font-size: 0.8125rem; color: var(--gray-600); }
@@ -328,4 +328,10 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 @media (max-width: 1200px) { .reviews-grid { grid-template-columns: repeat(2, 1fr); } .wide-list { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } .contact-map { position: static; } }
 @media (max-width: 700px) { .reviews-grid, .wide-list { grid-template-columns: 1fr; } .reviews-cta .btn { width: 100%; } }
+@media (max-width: 560px) {
+  .lang-group .a11y-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .translate-slot .goog-te-combo { max-width: 150px; }
+  .chat-widget { padding: 8px; right: 14px; bottom: 14px; }
+  .chat-widget > span:not(.bubble) { display: none; }
+}
 .hero .eyebrow, .page-hero .eyebrow, .s360-hero .eyebrow { color: #ff7a6e; }
